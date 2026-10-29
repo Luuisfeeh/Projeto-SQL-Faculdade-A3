@@ -7,7 +7,7 @@ Projeto da disciplina de Banco de Dados. O banco registra **entradas e saídas**
 
 | RA | Nome completo |
 |----|---------------|
-| _(preencher)_ | _(preencher)_ |
+| _82324327_ | _Luis Felipe Pontes_ |
 
 ## Como reproduzir o banco
 
