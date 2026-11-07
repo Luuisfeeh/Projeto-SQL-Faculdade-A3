@@ -1,7 +1,7 @@
 # Projeto-SQL-Faculdade-A3
 # Banco de dados de um sistema de controle de estacionamento (SQLite)
 
-Projeto da disciplina de Banco de Dados. O banco registra **entradas e saídas** de carros avulsos (rotativos, cobrados por hora) e de **mensalistas**, além de pagamentos, mensalidades, lojas conveniadas e ocorrências. Não há interface: o projeto é só o banco (modelos conceitual, lógico e físico + consultas).
+Projeto da UC de Modelagem de Software. O banco registra **entradas e saídas** de carros avulsos (rotativos, cobrados por hora) e de **mensalistas**, além de pagamentos, mensalidades, lojas conveniadas e ocorrências. Não há interface: o projeto é só o banco (modelos conceitual, lógico e físico + consultas).
 
 ## Integrantes
 
@@ -71,12 +71,4 @@ tools/  gerar_resultados.py
 - SQLite e DB Browser for SQLite (criação, população e consultas)
 - Graphviz (diagramas conceitual e lógico; os arquivos `.dot` são os arquivos do projeto dos diagramas)
 - Python 3 (`sqlite3`) para verificar os requisitos e gerar os resultados comentados
-- Assistente de IA (Claude, da Anthropic) como apoio à elaboração e à revisão — _(o grupo deve confirmar o que quer declarar aqui)_
 
-## Referências
-
-_(Citar aqui eventuais modelos de outros bancos usados como referência; se não houve, remover esta seção.)_
-
-## Licença
-
-Código (scripts SQL e Python): [MIT](LICENSE). Dados de teste (`sql/02-dados.sql`): totalmente fictícios, liberados sob CC0 1.0 (domínio público). As tabelas `marca` e `modelo` (`sql/00-base-fornecida.sql`) pertencem ao material do professor.
