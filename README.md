@@ -8,6 +8,10 @@ Projeto da disciplina de Banco de Dados. O banco registra **entradas e saídas**
 | RA | Nome completo |
 |----|---------------|
 | _82324327_ | _Luis Felipe Pontes_ |
+| _824138253_ | _Felipe Sperati Vieira da Costa_ |
+| _8261107956_ | _Kevyn da Silva calixto_ |
+| _823159189_ | _Leonardo Barroso de Almeida_ |
+| _82322031_ | _Erick Yudi Nishimura Arakaki_ |
 
 ## Como reproduzir o banco
 
