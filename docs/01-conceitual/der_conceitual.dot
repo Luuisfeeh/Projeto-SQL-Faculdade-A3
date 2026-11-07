@@ -1,0 +1,68 @@
+// DER conceitual (notação Chen adaptada) — renderizar com: dot -Tpng der_conceitual.dot -o der_conceitual.png
+// Entidades = retângulos (borda dupla = entidade fraca); relacionamentos = losangos (borda dupla = identificador);
+// cada ligação é rotulada (mín,máx) = cardinalidade da entidade NAQUELE relacionamento.
+// Atributos: <u>sublinhado</u> = identificador; {…} = multivalorado; (…) = composto; (opc) = opcional.
+graph DER {
+  layout=neato; overlap=false; splines=true; sep="+18"; fontname="Helvetica";
+  node [fontname="Helvetica", fontsize=10];
+  edge [fontname="Helvetica", fontsize=11, color="#444444"];
+
+  ESTAC [shape=box, style=filled, fillcolor="#e8f0fe", pos="0,9!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>ESTACIONAMENTO</b></td></tr><tr><td><u>cod_estacionamento</u></td></tr><tr><td>nome</td></tr><tr><td>(endereço: logradouro,<br/>número, bairro, cidade, UF, CEP)</td></tr><tr><td>capacidade_maxima</td></tr></table>>];
+
+  CLI [shape=box, style=filled, fillcolor="#e8f0fe", pos="0,3!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>CLIENTE</b></td></tr><tr><td><u>cod_cliente</u></td></tr><tr><td>nome</td></tr><tr><td>cpf</td></tr><tr><td>email (opc)</td></tr><tr><td>{telefone}</td></tr></table>>];
+
+  VEIC [shape=box, style=filled, fillcolor="#e8f0fe", pos="6,3!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>VEÍCULO</b></td></tr><tr><td><u>placa</u></td></tr></table>>];
+
+  MODELO [shape=box, style="filled,dashed", fillcolor="#eeeeee", pos="6,0!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>MODELO</b> (fornecida)</td></tr><tr><td><u>cod_modelo</u>, nome, carroceria</td></tr></table>>];
+  MARCA [shape=box, style="filled,dashed", fillcolor="#eeeeee", pos="10,0!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>MARCA</b> (fornecida)</td></tr><tr><td><u>cod_marca</u>, nome</td></tr></table>>];
+
+  CONTR [shape=box, style=filled, fillcolor="#e8f0fe", pos="0,-3!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>CONTRATO</b></td></tr><tr><td><u>cod_contrato</u></td></tr><tr><td>data_inicio</td></tr><tr><td>data_fim</td></tr><tr><td>valor_mensal</td></tr></table>>];
+
+  MENS [shape=box, peripheries=2, style=filled, fillcolor="#fff4e0", pos="-6,-3!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>MENSALIDADE</b> (fraca)</td></tr><tr><td><u>competência</u> (parcial)</td></tr><tr><td>data_vencimento</td></tr><tr><td>data_pagamento (opc)</td></tr></table>>];
+
+  ESTADIA [shape=box, style=filled, fillcolor="#e8f0fe", pos="9,6!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>ESTADIA</b></td></tr><tr><td><u>cod_estadia</u></td></tr><tr><td>data_hora_entrada</td></tr><tr><td>data_hora_saida (opc)</td></tr></table>>];
+
+  PAG [shape=box, peripheries=2, style=filled, fillcolor="#fff4e0", pos="15,6!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>PAGAMENTO</b> (fraca)</td></tr><tr><td>(sem id. próprio)</td></tr><tr><td>forma</td></tr><tr><td>valor</td></tr><tr><td>data_hora_pagamento</td></tr></table>>];
+
+  FUNC [shape=box, style=filled, fillcolor="#e8f0fe", pos="9,12!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>FUNCIONÁRIO</b></td></tr><tr><td><u>cod_funcionario</u></td></tr><tr><td>nome, cargo</td></tr><tr><td>matricula, ativo</td></tr></table>>];
+
+  LOJA [shape=box, style=filled, fillcolor="#e8f0fe", pos="15,2!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>LOJA_CONVENIADA</b></td></tr><tr><td><u>cod_loja</u></td></tr><tr><td>nome</td></tr><tr><td>cnpj</td></tr></table>>];
+
+  TARIFA [shape=box, style=filled, fillcolor="#e8f0fe", pos="15,9!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>TARIFA</b></td></tr><tr><td><u>cod_tarifa</u></td></tr><tr><td>valor_hora</td></tr><tr><td>vigencia_inicio</td></tr></table>>];
+
+  OCOR [shape=box, style=filled, fillcolor="#e8f0fe", pos="4,9!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>OCORRÊNCIA</b></td></tr><tr><td><u>cod_ocorrencia</u></td></tr><tr><td>data_hora</td></tr><tr><td>descricao</td></tr></table>>];
+
+  TIPO [shape=box, style=filled, fillcolor="#e8f0fe", pos="-1,6!", label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><b>TIPO_OCORRÊNCIA</b></td></tr><tr><td><u>cod_tipo</u></td></tr><tr><td>nome</td></tr></table>>];
+
+  node [shape=diamond, style=filled, fillcolor="#fffbe6", fontsize=9, width=1.2, height=0.7];
+  R_possui   [label="possui\n(titular)", pos="3,3!"];
+  R_tem      [label="é do\nmodelo", pos="6,1.5!"];
+  R_deMarca  [label="é da\nmarca", pos="8,0!"];
+  R_titular  [label="é titular\nde", pos="0,0!"];
+  R_cobre    [label="cobre", pos="3,-1.5!"];
+  R_gera     [label="gera", pos="-3,-3!", peripheries=2];
+  R_entra    [label="entra\n(veículo)", pos="7.5,4.5!"];
+  R_registra [label="registra\nentrada", pos="9,9!"];
+  R_paga     [label="é paga\npor", pos="12,6!", peripheries=2];
+  R_recebe   [label="recebe", pos="12,9.5!"];
+  R_vinc     [label="vinculada\na", pos="12,4!"];
+  R_envolve  [label="envolve", pos="6.5,7.5!"];
+  R_regocor  [label="registra\nocorrência", pos="6.5,10.5!"];
+  R_classif  [label="classificada\ncomo", pos="1.5,7.5!"];
+
+  // ligações com cardinalidades (mín,máx)
+  CLI -- R_possui   [label="(0,N)"];  R_possui -- VEIC [label="(0,1)"];
+  VEIC -- R_tem     [label="(1,1)"];  R_tem -- MODELO [label="(0,N)"];
+  MODELO -- R_deMarca [label="(1,1)"]; R_deMarca -- MARCA [label="(0,N)"];
+  CLI -- R_titular  [label="(0,N)"];  R_titular -- CONTR [label="(1,1)"];
+  CONTR -- R_cobre  [label="(1,1)"];  R_cobre -- VEIC [label="(0,N)"];
+  CONTR -- R_gera   [label="(0,N)"];  R_gera -- MENS [label="(1,1)", penwidth=2.5];
+  VEIC -- R_entra   [label="(0,N)"];  R_entra -- ESTADIA [label="(1,1)"];
+  FUNC -- R_registra [label="(0,N)"]; R_registra -- ESTADIA [label="(1,1)"];
+  ESTADIA -- R_paga [label="(0,1)"];  R_paga -- PAG [label="(1,1)", penwidth=2.5];
+  FUNC -- R_recebe  [label="(0,N)"];  R_recebe -- PAG [label="(1,1)"];
+  ESTADIA -- R_vinc [label="(0,1)"];  R_vinc -- LOJA [label="(0,N)"];
+  ESTADIA -- R_envolve [label="(0,N)"]; R_envolve -- OCOR [label="(1,1)"];
+  FUNC -- R_regocor [label="(0,N)"];  R_regocor -- OCOR [label="(1,1)"];
+  OCOR -- R_classif [label="(1,1)"];  R_classif -- TIPO [label="(0,N)"];
+}
