@@ -13,7 +13,7 @@ Projeto da UC de Modelagem de Software. O banco registra **entradas e saídas** 
 | _823159189_ | _Leonardo Barroso de Almeida_ |
 | _82322031_ | _Erick Yudi Nishimura Arakaki_ |
 
-## Como reproduzir o banco
+<!-- ## Como reproduzir o banco
 
 Execute os scripts **nesta ordem** (todos já começam com `PRAGMA foreign_keys = ON;`):
 
@@ -43,19 +43,19 @@ sqlite3 estacionamento.db < sql/03-consultas.sql
 
 ### Verificação automática (opcional)
 
-`python3 tools/gerar_resultados.py --verificar` monta o banco em memória, confere todos os cenários mínimos de dados do enunciado, que as consultas 16 e 17 retornam vazio e que o valor de cada pagamento bate com a consulta 14. Sem `--verificar`, o script regenera os resultados em comentário de `sql/03-consultas.sql`.
+`python3 tools/gerar_resultados.py --verificar` monta o banco em memória, confere todos os cenários mínimos de dados do enunciado, que as consultas 16 e 17 retornam vazio e que o valor de cada pagamento bate com a consulta 14. Sem `--verificar`, o script regenera os resultados em comentário de `sql/03-consultas.sql`. -->
 
 ## Modelos e diagramas
 
 | Nível | Descrição | Diagrama |
 |---|---|---|
 | Conceitual | [docs/01-conceitual](docs/01-conceitual/README.md) | [DER](docs/01-conceitual/der_conceitual.png) |
-| Lógico | [docs/02-logico](docs/02-logico/README.md) | [Diagrama lógico](docs/02-logico/diagrama_logico.png) |
-| Físico | [docs/03-fisico](docs/03-fisico/README.md) | [sql/01-schema.sql](sql/01-schema.sql) |
+<!-- | Lógico | [docs/02-logico](docs/02-logico/README.md) | [Diagrama lógico](docs/02-logico/diagrama_logico.png) |
+| Físico | [docs/03-fisico](docs/03-fisico/README.md) | [sql/01-schema.sql](sql/01-schema.sql) | -->
 
 ![DER conceitual](docs/01-conceitual/der_conceitual.png)
 
-Decisões em que as regras eram omissas: [docs/decisoes.md](docs/decisoes.md).
+<!-- Decisões em que as regras eram omissas: [docs/decisoes.md](docs/decisoes.md).
 
 ## Estrutura do repositório
 
@@ -70,5 +70,5 @@ tools/  gerar_resultados.py
 
 - SQLite e DB Browser for SQLite (criação, população e consultas)
 - Graphviz (diagramas conceitual e lógico; os arquivos `.dot` são os arquivos do projeto dos diagramas)
-- Python 3 (`sqlite3`) para verificar os requisitos e gerar os resultados comentados
+- Python 3 (`sqlite3`) para verificar os requisitos e gerar os resultados comentados -->
 
