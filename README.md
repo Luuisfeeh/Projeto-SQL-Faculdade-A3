@@ -50,8 +50,8 @@ sqlite3 estacionamento.db < sql/03-consultas.sql
 | Nível | Descrição | Diagrama |
 |---|---|---|
 | Conceitual | [docs/01-conceitual](docs/01-conceitual/README.md) | [DER](docs/01-conceitual/der_conceitual.png) |
-<!-- | Lógico | [docs/02-logico](docs/02-logico/README.md) | [Diagrama lógico](docs/02-logico/diagrama_logico.png) |
-| Físico | [docs/03-fisico](docs/03-fisico/README.md) | [sql/01-schema.sql](sql/01-schema.sql) | -->
+| Lógico | [docs/02-logico](docs/02-logico/README.md) | [Diagrama lógico](docs/02-logico/diagrama_logico.png) |
+<!-- | Físico | [docs/03-fisico](docs/03-fisico/README.md) | [sql/01-schema.sql](sql/01-schema.sql) | -->
 
 ![DER conceitual](docs/01-conceitual/der_conceitual.png)
 
